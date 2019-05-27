@@ -142,6 +142,29 @@ var pageContainer = $('#pageContainer');
 var pageTabs = $('.page-tab');
 var currentTab = "Movies";
 
+function changeTab(tabName){
+  if (tabName.text() === currentTab){
+    console.log('you are still on the same page');
+  } else {
+    console.log('Change to the directors page');
+  }
+}
+
+function showMovies(){
+  if(maxNumberOnScreen > movies.length){
+    showMovieThumbnails(0, movies.length);
+  } else {
+    showMovieThumbnails(0, maxNumberOnScreen);
+  }
+
+  if(numberOfPages > 1){
+    var pagination = $('#paginationMovies');
+    for (var i = 0; i < numberOfPages; i++) {
+      var pageNumber = i + 1;
+      pagination += ('<li class="page-item" onclick="paginationClick(' + pageNumber + ');"><a class="page-link" href="#">'+ pageNumber +'</a></li>');
+    }
+  }
+}
 
 pageTabs.click(function(){
   pageTabs.removeClass('active');
@@ -149,11 +172,72 @@ pageTabs.click(function(){
   changeTab($(this));
 })
 
-function changeTab(a){
-  // console.log(a.text());
-  if (a.text() === 'Movies'){
-    // change to movie content
-  } else {
-    // change to director content
+function getGenreColor(genre){
+  if (genre == "Historical") {
+      return "primary";
+    } else if (genre == "Documentary"){
+      return "secondary";
+    } else if (genre == "Psychological"){
+      return "success";
+    } else if (genre == "Sports"){
+      return "warning";
+    } else if (genre == "Language"){
+      return "danger";
+    } else if (genre == "Cattle"){
+      return "info";
+    } else if (genre == "German Idealism"){
+      return "light";
+    } else {
+      return "dark";
+    }
+  }
+
+showMovies();
+
+function showMovieThumbnails(start, end){
+  for (var i = start; i < end; i++) {
+    var movie = movies[i];
+
+    var genreClass = "";
+
+    if(movie.genre[0] === "Historical"){
+    genreClass = "border-primary";
+    } else if (movie.genre[0] === "Documentary") {
+      genreClass = "border-success";
+    }
+
+    var genreColor = getGenreColor(movie.genre[0]); // [0] because we want the 'primary' genre
+
+    var movieCard = '<div class="col-12 col-sm-6 col-md-3 mb-3 text-center">';
+        movieCard += ('<div class="movieThumb movieThumb2 card h-100 ' + genreClass + '" data-id="' + movie.id + '">');
+            movieCard += '<img src="posters/' + movie.poster + '" class="card-img-top" alt="">';
+            movieCard += '<div class="card-body">';
+                movieCard += '<h5 class="card-title">' + movie.title + '</h5>';
+            movieCard += '</div>';
+        movieCard += '</div>';
+    movieCard += '</div>';
+
+    document.getElementById('moviesList').innerHTML += movieCard;
+ }
+
+ // applies onclick for overlay to movie thumbails
+   var movieThumbnails = document.getElementsByClassName("movieThumb2");
+
+    for (var j = 0; j < movieThumbnails.length; j++) {
+     movieThumbnails[j].onclick = function(){
+       var id = parseInt(this.dataset.id);
+       showMoreMovie(id);
+
+     }
   }
 }
+
+
+
+
+///////
+// swap out:
+//   var movieCard = document.hsifijsdfijdsf
+//   movieCard +=
+// for:
+//    $(movieCard).append( ... );
