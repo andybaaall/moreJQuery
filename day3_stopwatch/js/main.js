@@ -17,6 +17,11 @@ $(document).ready(function(){
   resetBtn.hide();
 
   startBtn.click(function(){
+
+    var minutes = 0;
+    var seconds10 = 0;
+    var seconds1 = 0;
+    
     if (startBtnClicked === false) {
       startBtn.text('pause timer');
       startBtn.addClass('bg-red');
@@ -36,7 +41,7 @@ $(document).ready(function(){
         }
 
         timerContainer.html(minutes + ':' + seconds10 + seconds1);
-      } , 1000);
+      } , 400);
 
       startBtnClicked = true;
     } else if (startBtnClicked === true) {
@@ -58,9 +63,14 @@ $(document).ready(function(){
     resetBtn.click(function(){
       clearInterval(timerCounter);
       timerContainer.html(0 + ':' + 0 + 0);
+
       resetBtn.fadeOut(300);
+
       startBtn.text('start timer');
       startBtn.removeClass('bg-red');
+
+      startBtnClicked = false;
+
     })
   }); // startBtn onclick
 }); // document ready
