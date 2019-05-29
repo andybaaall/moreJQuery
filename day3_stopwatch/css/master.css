@@ -1,0 +1,13 @@
+.bg-red {
+  background-color: tomato;
+  border: 0;
+}
+
+.bg-blue {
+  background-color: cadetBlue;
+  border: 0;
+}
+
+.white {
+  color: white;
+}
