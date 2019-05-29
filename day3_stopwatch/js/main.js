@@ -21,7 +21,7 @@ $(document).ready(function(){
     var minutes = 0;
     var seconds10 = 0;
     var seconds1 = 0;
-    
+
     if (startBtnClicked === false) {
       startBtn.text('pause timer');
       startBtn.addClass('bg-red');
@@ -41,7 +41,7 @@ $(document).ready(function(){
         }
 
         timerContainer.html(minutes + ':' + seconds10 + seconds1);
-      } , 400);
+      } , 1000);
 
       startBtnClicked = true;
     } else if (startBtnClicked === true) {
