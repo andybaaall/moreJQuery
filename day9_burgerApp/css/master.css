@@ -1,0 +1,13 @@
+.burgerBtn {
+  display: block;
+}
+
+.burgerContainer {
+  position: relative;
+  height: 50vh;
+  width: 50vw;
+  left: 1rem;
+  top: 1rem;
+  border: 0.1em solid lightgrey;
+  border-radius: 1rem;
+}
