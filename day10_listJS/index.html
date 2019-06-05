@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>List JS example~~~~</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+  </head>
+  <body>
+
+    <div id="users" class="ml-5">
+      <br>
+      <br>
+    <!-- class="search" automagically makes an input a search field. -->
+      <input class="search" placeholder="Search" />
+    <!-- class="sort" automagically makes an element a sort button. The data-sort value decides what to sort by. -->
+      <button class="sort" data-sort="name">
+        Sort by name
+      </button>
+      <button class="sort" data-sort="born">
+        Sort by birth year
+      </button>
+      <br>
+      <br>
+      <br>
+
+    <!-- Child elements of container with class="list" becomes list items -->
+      <ul class="list">
+        <li>
+    <!-- The innerHTML of children with class="name" becomes this item's "name" value -->
+          <h3 class="name">Homer Simpson</h3>
+          <p class="born">1957</p>
+        </li>
+        <li>
+          <h3 class="name">Marge Simpson</h3>
+          <p class="born">1958</p>
+        </li>
+        <li>
+          <h3 class="name">Bartholomew Simpson</h3>
+          <p class="born">1983</p>
+        </li>
+        <li>
+          <h3 class="name">Lisa Simpson</h3>
+          <p class="born">1985</p>
+        </li>
+        <li>
+          <h3 class="name">Margaret Simpson</h3>
+          <p class="born">1993</p>
+        </li>
+      </ul>
+
+    </div>
+
+
+    <!-- https://listjs.com/api/ -->
+
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/list.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
